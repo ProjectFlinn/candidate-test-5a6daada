@@ -19,6 +19,11 @@
         "sass": "^1.40.1",
         "typescript": "^5.2.2"
     },
+    "overrides": {
+        "react-scripts": {
+            "typescript": "^5"
+        }
+    },
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
