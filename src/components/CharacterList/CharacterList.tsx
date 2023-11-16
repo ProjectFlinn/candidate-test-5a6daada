@@ -1,9 +1,13 @@
 import React from "react";
+import { useSearchParams } from "react-router-dom";
 import { useCharacters } from "hooks/useCharacters";
 import { Character as TCharacter } from "schemas/CharacterSchema";
 import styles from "./CharacterList.module.scss";
+import { capitaliseFirstLetter } from "utils/capitaliseFirstLetter";
 
 const CharacterList = () => {
+    const [searchParams] = useSearchParams();
+
     const {
         data: characters,
         isPending: isPendingCharacters,
@@ -19,11 +23,19 @@ const CharacterList = () => {
         return <button onClick={() => refetchCharacters()}>Try again?</button>;
     }
 
+    const category = searchParams.get("category");
+    const orderBy = searchParams.get("order by");
+
     return (
         <ul className={styles["Character-List"]}>
-            {characters.map((character) => (
-                <Character key={character.name} {...character} />
-            ))}
+            {characters
+                .filter((character) => filterCharactersByCategory(character, category))
+                .sort((character1, character2) =>
+                    orderCharactersBy(character1, character2, orderBy)
+                )
+                .map((character) => (
+                    <Character key={character.name} {...character} />
+                ))}
         </ul>
     );
 };
@@ -47,6 +59,24 @@ const Character = ({ name, category, description, avatar }: TCharacter) => {
     );
 };
 
-const capitaliseFirstLetter = (str: string) => str[0].toUpperCase() + str.slice(1);
+const filterCharactersByCategory = (character: TCharacter, filterByCategory: string | null) => {
+    if (!filterByCategory || filterByCategory === "any") {
+        return true;
+    }
+
+    return character.category === filterByCategory;
+};
+
+const orderCharactersBy = (
+    character1: TCharacter,
+    character2: TCharacter,
+    orderBy: string | null
+) => {
+    if (orderBy === "significance") {
+        return character1.significanceIndex - character2.significanceIndex;
+    }
+
+    return character1.name.localeCompare(character2.name);
+};
 
 export default CharacterList;
