@@ -1,0 +1,39 @@
+.Character-List {
+    list-style: none;
+    margin: 10px;
+    padding: 0;
+    display: inline-block;
+}
+
+.Character {
+    background-color: #fff;
+    margin-bottom: 10px;
+    max-width: 800px;
+}
+
+.Character-Content {
+    display: flex;
+    padding-right: 5px;
+}
+
+.Character-Avatar {
+    border-radius: 50%;
+    padding: 15px;
+    width: 60px;
+    height: 60px;
+}
+
+.Character-Info {
+    p {
+        text-align: left;
+    }
+}
+
+.Character-Name {
+    font-size: 14px;
+}
+
+.Character-Category,
+.Character-Description {
+    font-size: 12px;
+}

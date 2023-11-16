@@ -7,3 +7,5 @@ export const characterSchema = z.object({
     significanceIndex: z.number(),
     avatar: z.string()
 });
+
+export type Character = z.infer<typeof characterSchema>;
