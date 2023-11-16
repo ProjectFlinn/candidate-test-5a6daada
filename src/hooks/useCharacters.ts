@@ -10,6 +10,6 @@ export const useCharacters = () => {
 };
 
 const fetchCharacters = async () => {
-    const { data } = await axios.get("/characters.json");
+    const { data } = await axios.get(process.env.REACT_APP_CHARACTERS_URL!);
     return characterSchema.array().parse(data);
 };
