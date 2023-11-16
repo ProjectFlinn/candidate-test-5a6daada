@@ -37,7 +37,9 @@ const Character = ({ name, category, description, avatar }: TCharacter) => {
                     <p className={styles["Character-Name"]}>
                         <strong>{name}</strong>
                     </p>
-                    <p className={styles["Character-Category"]}>{capitaliseFirstLetter(category)}</p>
+                    <p className={styles["Character-Category"]}>
+                        {capitaliseFirstLetter(category)}
+                    </p>
                     <p className={styles["Character-Description"]}>{description}</p>
                 </div>
             </div>

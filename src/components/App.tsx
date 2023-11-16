@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../logo.svg";
 import styles from "./App.module.scss";
 import CharacterList from "./CharacterList/CharacterList";
+import { CharacterControl } from "./CharacterControls/CharacterControl";
 
 // Character list is available in the public directory
 
@@ -14,6 +15,9 @@ export function App() {
             </header>
 
             <section className="App-content">
+                <div className={styles["App-Character-Control-Container"]}>
+                    <CharacterControl />
+                </div>
                 <CharacterList />
             </section>
         </div>
