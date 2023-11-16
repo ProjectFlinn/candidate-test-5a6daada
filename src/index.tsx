@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { BrowserRouter } from "react-router-dom";
 import { App } from "./components/App";
 import registerServiceWorker from "./registerServiceWorker";
+import "./types/envVariables";
 import "./index.css";
 
 const domNode = document.getElementById("root");

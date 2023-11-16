@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { characterSchema } from "schemas/CharacterSchema";
+import { characterSchema } from "schemas/characterSchema";
 
 export const useCharacters = () => {
     return useQuery({
@@ -10,6 +10,6 @@ export const useCharacters = () => {
 };
 
 const fetchCharacters = async () => {
-    const { data } = await axios.get(process.env.REACT_APP_CHARACTERS_URL!);
+    const { data } = await axios.get(process.env.REACT_APP_CHARACTERS_URL);
     return characterSchema.array().parse(data);
 };

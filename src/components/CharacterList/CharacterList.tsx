@@ -1,7 +1,7 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 import { useCharacters } from "hooks/useCharacters";
-import { Character as TCharacter } from "schemas/CharacterSchema";
+import { Character as TCharacter } from "schemas/characterSchema";
 import styles from "./CharacterList.module.scss";
 import { capitaliseFirstLetter } from "utils/capitaliseFirstLetter";
 
