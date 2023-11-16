@@ -34,6 +34,7 @@ const Select = ({ options, label }: SelectProps) => {
                 id={label}
                 onChange={(e) => handleSelectOption(e.target.value)}
                 defaultValue={defaultValue}
+                className={styles["Select"]}
             >
                 {options.map((option) => (
                     <option key={option.value} value={option.value}>

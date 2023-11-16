@@ -1,3 +1,5 @@
+@use "../../styles/Variables.scss" as *;
+
 .Character-Control {
     display: flex;
     justify-content: center;
@@ -8,10 +10,14 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    height: 60px;
+    min-height: 60px;
     width: 100%;
-    max-width: 800px;
+    max-width: $content-max-width;
     padding-bottom: 10px;
+
+    @media only screen and (max-width: $small-screen) {
+        flex-direction: column;
+    }
 }
 
 .Select-Container {
@@ -22,4 +28,8 @@
 .Select-Label {
     display: block;
     margin-bottom: 5px;
+}
+
+.Select {
+    min-width: 130px;
 }

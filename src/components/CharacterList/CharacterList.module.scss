@@ -1,3 +1,5 @@
+@use "../../styles/Variables.scss" as *;
+
 .Character-List {
     list-style: none;
     padding: 0;
@@ -9,13 +11,18 @@
 
 .Character {
     background-color: #fff;
-    max-width: 800px;
+    max-width: $content-max-width;
     width: 100%;
 }
 
 .Character-Content {
     display: flex;
     padding-right: 5px;
+
+    @media only screen and (max-width: $small-screen) {
+        flex-direction: column;
+        padding: 5px;
+    }
 }
 
 .Character-Avatar {
@@ -23,11 +30,19 @@
     padding: 15px;
     width: 60px;
     height: 60px;
+
+    @media only screen and (max-width: $small-screen) {
+        margin: auto;
+    }
 }
 
 .Character-Info {
     p {
         text-align: left;
+
+        @media only screen and (max-width: $small-screen) {
+            text-align: center;
+        }
     }
 }
 
