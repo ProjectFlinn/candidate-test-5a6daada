@@ -6,6 +6,7 @@ import { CharacterControl } from "./CharacterControls/CharacterControl";
 
 // Character list is available in the public directory
 
+
 export function App() {
     return (
         <div className={styles.App}>
